@@ -38,6 +38,9 @@ Vagrant::Config.run do |config|
   config.vm.share_folder("v-web", "/var/www", "/var/www", :nfs => true)
   config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
 
+  config.ssh.private_key_path = "~/.ssh/insecure_private_key"
+  config.ssh.max_tries = 10
+
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
