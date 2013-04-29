@@ -5,7 +5,7 @@ Create a virtual machine using vagrant.
 
 Provisionning is made with puppet
 
-This VM provide a LAMP server with php 5.4
+This VM provide a LAMP server with php 5.3
 
 Installation
 ------------
@@ -25,6 +25,7 @@ then :
 
 ``` bash
 $ git clone --recursive https://github.com/lunika/vm-php.git
+$ git checkout --track origin/php5.3
 $ cd vm-php
 $ vagrant up
 ```

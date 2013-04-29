@@ -14,9 +14,9 @@ class system-update {
 }
 
 class development {
-    $devPackages = ["curl", "git"]
+    $devPackages = ["curl", "git-core"]
     package { $devPackages:
-        ensure => 'installed',
+        ensure => 'latest',
         require => Exec['apt-get update']
     }
 }
@@ -33,9 +33,9 @@ class dev_php {
         source => "/vagrant/conf/gd.ini"
     }
 
-    php::module { ["mysqlnd"]:
+    php::module { ["mysql"]:
         notify => Service['apache'],
-        source => "/vagrant/conf/mysqlnd.ini"
+        source => "/vagrant/conf/mysql.ini"
     }
 
     php::module { ["mcrypt"]:
@@ -60,19 +60,19 @@ class dev_php {
     }
 
     php::conf { ["mysqli"]:
-        require => Package["php5-mysqlnd"],
+        require => Package["php5-mysql"],
         notify => Service["apache"],
         source => "/vagrant/conf/mysqli.ini"
     }
 
     php::conf { ["pdo"]:
-        require => Package["php5-mysqlnd"],
+        require => Package["php5-mysql"],
         notify => Service["apache"],
         source => "/vagrant/conf/pdo.ini"
     }
 
     php::conf { ["pdo_mysql"]:
-        require => Package["php5-mysqlnd"],
+        require => Package["php5-mysql"],
         notify => Service["apache"],
         source => "/vagrant/conf/pdo_mysql.ini"
     }
