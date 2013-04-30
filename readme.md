@@ -7,6 +7,8 @@ Provisionning is made with puppet
 
 This VM provide a LAMP server with php 5.3
 
+mysql root password : root
+
 Installation
 ------------
 
