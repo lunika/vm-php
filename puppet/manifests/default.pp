@@ -105,5 +105,4 @@ include dev_php
 include apache
 include mysql
 
-include phpqatools
 include development
