@@ -59,12 +59,6 @@ class dev_php {
         source => "/vagrant/conf/xdebug.ini"
     }
 
-    php::conf { ["mysqli"]:
-        require => Package["php5-mysqlnd"],
-        notify => Service["apache"],
-        source => "/vagrant/conf/mysqli.ini"
-    }
-
     php::conf { ["pdo"]:
         require => Package["php5-mysqlnd"],
         notify => Service["apache"],
